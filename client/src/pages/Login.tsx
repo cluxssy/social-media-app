@@ -67,8 +67,8 @@ export default function Login() {
                 className="w-full flex items-center gap-2 justify-center"
                 onClick={() => {
                   toast({
-                    title: "Google Login",
-                    description: "This feature requires Google API credentials",
+                    title: "Google Sign In",
+                    description: "Google authentication is coming soon!",
                   });
                 }}
               >
@@ -81,8 +81,8 @@ export default function Login() {
                 className="w-full flex items-center gap-2 justify-center bg-black text-white hover:bg-black/90"
                 onClick={() => {
                   toast({
-                    title: "X Login",
-                    description: "This feature requires X API credentials",
+                    title: "X Sign In",
+                    description: "X/Twitter authentication is coming soon!",
                   });
                 }}
               >

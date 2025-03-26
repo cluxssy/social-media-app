@@ -1,8 +1,26 @@
-import { NextAuthOptions } from "next-auth";
+import { DefaultSession, NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import TwitterProvider from "next-auth/providers/twitter";
-import CredentialsProvider from "next-auth/providers/credentials";
 import { storage } from "./storage";
+
+// Extend the built-in session types
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: number;
+      username: string;
+    } & DefaultSession["user"]
+  }
+}
+
+// Extend the built-in user type
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: number;
+    username: string;
+  }
+}
 
 // Read environment variables
 const googleClientId = process.env.GOOGLE_CLIENT_ID || "";

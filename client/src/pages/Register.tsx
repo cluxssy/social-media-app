@@ -103,7 +103,7 @@ export default function Register() {
                 onClick={() => {
                   toast({
                     title: "Google Sign Up",
-                    description: "This feature requires Google API credentials",
+                    description: "Google authentication is coming soon!",
                   });
                 }}
               >
@@ -117,7 +117,7 @@ export default function Register() {
                 onClick={() => {
                   toast({
                     title: "X Sign Up",
-                    description: "This feature requires X API credentials",
+                    description: "X/Twitter authentication is coming soon!",
                   });
                 }}
               >
