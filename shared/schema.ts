@@ -5,11 +5,13 @@ import { z } from "zod";
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+  password: text("password"),
   fullName: text("full_name").notNull(),
   bio: text("bio"),
   profileImage: text("profile_image"),
   email: text("email").notNull().unique(),
+  provider: text("provider"), // 'local', 'google', 'facebook', 'twitter'
+  providerId: text("provider_id"), // ID from the provider
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
@@ -19,6 +21,8 @@ export const insertUserSchema = createInsertSchema(users).pick({
   bio: true,
   profileImage: true,
   email: true,
+  provider: true,
+  providerId: true,
 });
 
 export const posts = pgTable("posts", {
