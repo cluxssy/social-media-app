@@ -7,7 +7,7 @@ import { insertUserSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { useAuth } from "@/hooks/use-auth";
 import { FcGoogle } from "react-icons/fc";
-import { SiFacebook, SiX } from "react-icons/si";
+import { SiX } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
