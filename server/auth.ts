@@ -1,28 +1,21 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
 import TwitterProvider from "next-auth/providers/twitter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { storage } from "./storage";
 
 // Read environment variables
-const googleClientId = process.env.GOOGLE_CLIENT_ID || "mock-google-client-id";
-const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "mock-google-client-secret";
-const facebookClientId = process.env.FACEBOOK_CLIENT_ID || "mock-facebook-client-id";
-const facebookClientSecret = process.env.FACEBOOK_CLIENT_SECRET || "mock-facebook-client-secret";
-const twitterClientId = process.env.TWITTER_CLIENT_ID || "mock-twitter-client-id";
-const twitterClientSecret = process.env.TWITTER_CLIENT_SECRET || "mock-twitter-client-secret";
-const nextAuthSecret = process.env.NEXTAUTH_SECRET || "your-secret-key-for-development-only";
+const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
+const twitterClientId = process.env.TWITTER_CLIENT_ID || "";
+const twitterClientSecret = process.env.TWITTER_CLIENT_SECRET || "";
+const nextAuthSecret = process.env.NEXTAUTH_SECRET || "";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: googleClientId,
       clientSecret: googleClientSecret,
-    }),
-    FacebookProvider({
-      clientId: facebookClientId,
-      clientSecret: facebookClientSecret,
     }),
     TwitterProvider({
       clientId: twitterClientId,
