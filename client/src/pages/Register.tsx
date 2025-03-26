@@ -113,20 +113,6 @@ export default function Register() {
               
               <Button 
                 variant="outline" 
-                className="w-full flex items-center gap-2 justify-center bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
-                onClick={() => {
-                  toast({
-                    title: "Facebook Sign Up",
-                    description: "This feature requires Facebook API credentials",
-                  });
-                }}
-              >
-                <SiFacebook className="h-5 w-5" />
-                <span>Continue with Facebook</span>
-              </Button>
-              
-              <Button 
-                variant="outline" 
                 className="w-full flex items-center gap-2 justify-center bg-black text-white hover:bg-black/90"
                 onClick={() => {
                   toast({
