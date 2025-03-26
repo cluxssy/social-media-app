@@ -191,6 +191,12 @@ export class MemStorage implements IStorage {
     );
   }
 
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    return Array.from(this.users.values()).find(
+      (user) => user.email.toLowerCase() === email.toLowerCase()
+    );
+  }
+
   async getUsersBySearch(query: string): Promise<User[]> {
     const lowercaseQuery = query.toLowerCase();
     return Array.from(this.users.values()).filter(

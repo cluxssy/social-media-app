@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { insertUserSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { useAuth } from "@/hooks/use-auth";
+import { FcGoogle } from "react-icons/fc";
+import { SiFacebook, SiX } from "react-icons/si";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +15,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
+import { Separator } from "@/components/ui/separator";
 
 // Extend the insert user schema with validation rules
 const registerSchema = insertUserSchema.extend({
@@ -93,6 +96,59 @@ export default function Register() {
             <p className="text-[#8E8E8E] text-sm">Sign up to see photos and videos from your friends.</p>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="space-y-4">
+              <Button 
+                variant="outline" 
+                className="w-full flex items-center gap-2 justify-center"
+                onClick={() => {
+                  toast({
+                    title: "Google Sign Up",
+                    description: "This feature requires Google API credentials",
+                  });
+                }}
+              >
+                <FcGoogle className="h-5 w-5" />
+                <span>Continue with Google</span>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full flex items-center gap-2 justify-center bg-[#1877F2] text-white hover:bg-[#1877F2]/90"
+                onClick={() => {
+                  toast({
+                    title: "Facebook Sign Up",
+                    description: "This feature requires Facebook API credentials",
+                  });
+                }}
+              >
+                <SiFacebook className="h-5 w-5" />
+                <span>Continue with Facebook</span>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full flex items-center gap-2 justify-center bg-black text-white hover:bg-black/90"
+                onClick={() => {
+                  toast({
+                    title: "X Sign Up",
+                    description: "This feature requires X API credentials",
+                  });
+                }}
+              >
+                <SiX className="h-4 w-4" />
+                <span>Continue with X</span>
+              </Button>
+              
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <Separator className="w-full" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-white px-2 text-muted-foreground">Or</span>
+                </div>
+              </div>
+            </div>
+            
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
